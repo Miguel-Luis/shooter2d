@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://birck25abbmqt"]
+
+[ext_resource type="FontFile" uid="uid://dstua3c5h8nfw" path="res://assets/hud/fonts/NokiaCellphoneFC.ttf" id="1_okufh"]
+
+[resource]
+base_font = ExtResource("1_okufh")

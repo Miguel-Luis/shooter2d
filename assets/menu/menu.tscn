@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://qhipbusmi55o"]
+
+[ext_resource type="AudioStream" uid="uid://cvd2p3qaxmuc8" path="res://assets/menu/music/New Hope.ogg" id="1_gmlof"]
+[ext_resource type="Script" path="res://assets/menu/menu.gd" id="1_xsnx6"]
+[ext_resource type="Texture2D" uid="uid://cvnqteqp13qe" path="res://assets/menu/sprites/background.png" id="2_q3slu"]
+[ext_resource type="FontFile" uid="uid://dstua3c5h8nfw" path="res://assets/hud/fonts/NokiaCellphoneFC.ttf" id="3_3qjg3"]
+[ext_resource type="FontVariation" uid="uid://dmp1jqj8tytsw" path="res://assets/hud/fonts/header_style.tres" id="4_x8vsq"]
+[ext_resource type="FontVariation" uid="uid://birck25abbmqt" path="res://assets/hud/fonts/standard_style.tres" id="5_mf30v"]
+
+[sub_resource type="FontVariation" id="FontVariation_748ii"]
+base_font = ExtResource("3_3qjg3")
+spacing_glyph = 12
+
+[sub_resource type="FontVariation" id="FontVariation_kucbl"]
+base_font = ExtResource("3_3qjg3")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xsnx6")
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_gmlof")
+volume_db = -10.0
+autoplay = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_q3slu")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Miguel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.878431, 0.509804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("FontVariation_748ii")
+theme_override_font_sizes/font_size = 13
+text = "Miguel"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_direction = 3
+
+[node name="Spaceship" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_x8vsq")
+theme_override_font_sizes/font_size = 21
+text = "SPACESHIP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.878431, 0.509804, 1)
+theme_override_fonts/font = ExtResource("5_mf30v")
+theme_override_font_sizes/font_size = 10
+text = "Start"
+flat = true
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.878431, 0.509804, 1)
+theme_override_fonts/font = ExtResource("5_mf30v")
+theme_override_font_sizes/font_size = 10
+text = "Exit"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Footer" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_kucbl")
+theme_override_font_sizes/font_size = 7
+text = "Developed by Miguel's Studio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
